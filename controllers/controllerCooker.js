@@ -46,6 +46,11 @@ class CookerController {
         const sql = `UPDATE cooker SET email = '${email}', password = '${password}' WHERE id = '${id}'`;
         connection.query(sql);
     }
+
+    login(req, res) {
+        const { email, password } = req.body;
+        console.log(email, password);
+    }
 }
 
 module.exports = new CookerController();

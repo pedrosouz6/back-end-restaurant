@@ -8,4 +8,4 @@ app.use(express.json());
 
 app.use('/', CookerRoute);
 
-app.listen(3333, () => console.log("Servidor rodando"));
+app.listen(3333, () => console.log("Servidor rodando - 3333"));
