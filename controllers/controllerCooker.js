@@ -49,7 +49,17 @@ class CookerController {
 
     login(req, res) {
         const { email, password } = req.body;
-        console.log(email, password);
+
+        const sql = `SELECT * FROM cooker 
+        WHERE email = '${email}' && password = '${password}'`;
+
+        connection.query(sql, (error, results) => {
+            if(results) {
+                res.status(200).json({results});
+            } else {
+                console.log(error);
+            }
+        })
     }
 }
 
