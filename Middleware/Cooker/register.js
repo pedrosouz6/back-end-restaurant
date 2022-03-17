@@ -14,6 +14,7 @@ module.exports = (req, res, next) => {
                 message: 'This user already exists'
             });
         } 
+
         
         next();
     })

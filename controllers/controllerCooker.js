@@ -50,14 +50,29 @@ class CookerController {
     login(req, res) {
         const { email, password } = req.body;
 
-        const sql = `SELECT * FROM cooker 
-        WHERE email = '${email}' && password = '${password}'`;
+        const sql = `
+        SELECT * FROM cooker 
+        WHERE email = '${email}' && 
+        password = '${password}'`;
 
         connection.query(sql, (error, results) => {
-            if(results) {
-                res.status(200).json({results});
+            if(results.length > 0) {
+                res.status(200).json({
+                    user: {
+                        email,
+                        password
+                    },
+                    token: jtw.sign(
+                        {id: results.insertId},
+                        config.secret,
+                        {expiresIn: config.expireIn}
+                    )
+                })
             } else {
-                console.log(error);
+                res.status(200).json({
+                    error:  true,
+                    message: 'User not exists'
+                })
             }
         })
     }
