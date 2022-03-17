@@ -13,7 +13,8 @@ class CookerController {
                 res.status(200).json({
                     user: {
                         email,
-                        password
+                        password,
+                        type: '1'
                     },
                     token: jtw.sign(
                         {id: results.insertId},
@@ -60,7 +61,8 @@ class CookerController {
                 res.status(200).json({
                     user: {
                         email,
-                        password
+                        password,
+                        type: '1'
                     },
                     token: jtw.sign(
                         {id: results.insertId},
