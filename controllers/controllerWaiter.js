@@ -33,7 +33,7 @@ class WaiterController {
         const { email, password } = req.body;
 
         const sql = `
-        SELECT * FROM cooker 
+        SELECT * FROM waiter 
         WHERE email = '${email}' && 
         password = '${password}'`;
 
@@ -41,11 +41,12 @@ class WaiterController {
             if(results.length > 0) {
                 res.status(200).json({
                     user: {
+                        name: results[0].name,
                         email,
                         password,
                         type: '2'
                     },
-                    token: jtw.sign(
+                    token: jwt.sign(
                         {id: results.insertId},
                         config.secret,
                         {expiresIn: config.expireIn}

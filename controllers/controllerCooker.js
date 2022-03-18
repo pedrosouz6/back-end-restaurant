@@ -4,14 +4,15 @@ const config = require('../config/auth');
 
 class CookerController {
     create(req, res) {
-        const { email, password } = req.body;
-        const sql = `INSERT INTO cooker(email, password) VALUES('${email}', '${password}')`;
+        const { name, email, password } = req.body;
+        const sql = `INSERT INTO cooker(name, email, password) VALUES('${name}', '${email}', '${password}')`;
         connection.query(sql, (erro, results) => {
             if (results) {
                 console.log(results.insertId)
 
                 res.status(200).json({
                     user: {
+                        name,
                         email,
                         password,
                         type: '1'
@@ -60,6 +61,7 @@ class CookerController {
             if(results.length > 0) {
                 res.status(200).json({
                     user: {
+                        name: results[0].name,
                         email,
                         password,
                         type: '1'
