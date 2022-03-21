@@ -1,5 +1,5 @@
-const WaiterController = require('../controllers/controllerWaiter');
-const MiddleWaiter = require('../Middleware/Waiter/register');
+const WaiterController = require('../../controllers/Users/controllerWaiter');
+const MiddleWaiter = require('../../Middleware/Waiter/register');
 
 const express = require('express');
 const router = express.Router();

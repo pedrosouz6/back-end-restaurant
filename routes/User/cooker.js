@@ -1,7 +1,7 @@
-const Cooker = require('../controllers/controllerCooker');
+const Cooker = require('../../controllers/Users/controllerCooker');
 
 //const LoginCooker = require('../Middleware/CookerLogin');
-const RegisterMiddle = require('../Middleware/Cooker/register');
+const RegisterMiddle = require('../../Middleware/Cooker/register');
 
 const express = require('express');
 const router = express.Router();

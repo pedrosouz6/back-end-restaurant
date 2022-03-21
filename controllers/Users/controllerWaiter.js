@@ -1,6 +1,6 @@
-const { connection } = require('../config/connection');
+const { connection } = require('../../config/connection');
 const jwt = require('jsonwebtoken');
-const config = require('../config/auth');
+const config = require('../../config/auth');
 
 class WaiterController {
     create(req, res) {

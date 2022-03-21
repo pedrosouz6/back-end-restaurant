@@ -1,6 +1,6 @@
-const { connection } = require('../config/connection');
+const { connection } = require('../../config/connection');
 const jtw = require('jsonwebtoken');
-const config = require('../config/auth');
+const config = require('../../config/auth');
 
 class CookerController {
     create(req, res) {
