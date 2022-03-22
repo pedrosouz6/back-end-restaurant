@@ -36,12 +36,28 @@ class AdminController {
     }
 
     getUsers(req, res) {
-        const sql = 'SELECT * FROM waiter, cooker';
-        connection.query(sql, (error, results) => {
-            if(results) {
-                res.status(200).json(results)
-            }
-        })
+        const { typeUser } = req.params;
+        
+        console.log(typeUser);
+        if(typeUser == 'waiter') {
+            const sql = 'SELECT * FROM waiter';
+            connection.query(sql, (error, results) => {
+                if(results) {
+                    res.status(200).json(results);
+                }
+            })
+        } else if (typeUser == 'cooker') {
+            const sql = 'SELECT * FROM cooker';
+            connection.query(sql, (error, results) => {
+                if(results) {
+                    res.status(200).json(results);
+                }
+            })
+        } else if(typeUser == 'none') {
+            res.status(200).json({
+                message: 'Escolha o tipo de usuário'
+            })
+        }
     }
 }
 

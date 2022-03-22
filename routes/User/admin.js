@@ -4,6 +4,6 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/login/admin', Admin.login);
-router.get('/get/users', Admin.getUsers);
+router.get('/get/users/:typeUser', Admin.getUsers);
 
 module.exports = router;
