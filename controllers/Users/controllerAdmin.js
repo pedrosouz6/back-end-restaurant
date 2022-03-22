@@ -34,6 +34,15 @@ class AdminController {
             }
         })
     }
+
+    getUsers(req, res) {
+        const sql = 'SELECT * FROM waiter, cooker';
+        connection.query(sql, (error, results) => {
+            if(results) {
+                res.status(200).json(results)
+            }
+        })
+    }
 }
 
 module.exports = new AdminController();
