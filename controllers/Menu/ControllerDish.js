@@ -16,7 +16,7 @@ class ControllerDish {
     }
 
     get(req, res) {
-        const sql = 'SELECT * FROM menu';
+        const sql = 'SELECT * FROM menu ORDER BY id_dish desc';
         connection.query(sql, (error, results) => {
             if(results) {
                 return res.status(200).json(results);
