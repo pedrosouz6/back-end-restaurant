@@ -38,16 +38,15 @@ class AdminController {
     getUsers(req, res) {
         const { typeUser } = req.params;
         
-        console.log(typeUser);
         if(typeUser == 'waiter') {
-            const sql = 'SELECT * FROM waiter';
+            const sql = 'SELECT * FROM waiter ORDER BY id desc';
             connection.query(sql, (error, results) => {
                 if(results) {
                     res.status(200).json(results);
                 }
             })
         } else if (typeUser == 'cooker') {
-            const sql = 'SELECT * FROM cooker';
+            const sql = 'SELECT * FROM cooker ORDER BY id desc';
             connection.query(sql, (error, results) => {
                 if(results) {
                     res.status(200).json(results);
@@ -58,6 +57,31 @@ class AdminController {
                 message: 'Escolha o tipo de usuário'
             })
         }
+    }
+
+    deleteUser(req, res) {
+        const { typeUser, id } = req.params;
+        console.log(typeUser)
+        if(typeUser == 'waiter') {
+            const sql = `DELETE FROM waiter WHERE id = '${id}'`;
+            connection.query(sql, (error, results) => {
+                if(results) {
+                    res.status(200).json({
+                        message: 'Usuário deletado com sucesso'
+                    })
+                }
+            })
+        } else if(typeUser == 'cooker') {
+            const sql = `DELETE FROM cooker WHERE id = '${id}'`;
+            connection.query(sql, (error, results) => {
+                if(results) {
+                    res.status(200).json({
+                        message: 'Usuário deletado com sucesso'
+                    })
+                }
+            })
+        }
+
     }
 }
 
