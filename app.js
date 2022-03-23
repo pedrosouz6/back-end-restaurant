@@ -1,6 +1,7 @@
 const CookerRoute = require('./routes/User/cooker');
 const WaiterRoute = require('./routes/User/waiter');
 const AdminRoute = require('./routes/User/admin');
+const RequestRoute = require('./routes/Request/request');
 
 const Dish = require('./routes/Menu/menu');
 
@@ -14,6 +15,7 @@ app.use(express.json());
 app.use('/', CookerRoute);
 app.use('/', WaiterRoute);
 app.use('/', AdminRoute);
+app.use('/', RequestRoute);
 
 //Dish
 app.use('/', Dish);
