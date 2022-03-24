@@ -3,7 +3,7 @@ const { connection } = require('../../config/connection');
 class RequestController {
     add(req, res) {
         const { dish, table, userId } = req.body;
-        const sql = `INSERT INTO requests(name_request, id_user, table_request, status_request) VALUES('${dish}', '${userId}', '${table}', '1')`;
+        const sql = `INSERT INTO requests(name_request, id_user, table_request, status_request) VALUES('${dish}', '${userId}', '${table}', '3')`;
         connection.query(sql, (error, results) => {
             if(results) {
                 console.log('certo')
