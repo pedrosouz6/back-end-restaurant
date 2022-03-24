@@ -12,6 +12,7 @@ class WaiterController {
             if(results) {
                 res.status(200).json({
                     user: {
+                        id: results.insertId,
                         name,
                         password,
                         email,
@@ -41,6 +42,7 @@ class WaiterController {
             if(results.length > 0) {
                 res.status(200).json({
                     user: {
+                        id: results[0].id,
                         name: results[0].name,
                         email,
                         password,

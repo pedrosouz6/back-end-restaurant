@@ -12,6 +12,7 @@ class CookerController {
 
                 res.status(200).json({
                     user: {
+                        id: results.insertId,
                         name,
                         email,
                         password,
@@ -58,9 +59,11 @@ class CookerController {
         password = '${password}'`;
 
         connection.query(sql, (error, results) => {
+            console.log(results)
             if(results.length > 0) {
                 res.status(200).json({
                     user: {
+                        id: results[0].id,
                         name: results[0].name,
                         email,
                         password,
