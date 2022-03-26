@@ -30,6 +30,16 @@ class RequestController {
             }
         })
     }
+
+    updateStatus(req, res) {
+        const { id, status } = req.params;
+        const sql = `UPDATE requests SET status_request = ${status} WHERE id_request = '${id}'`;
+        connection.query(sql, (error, results) => {
+            if(results) {
+                console.log('update');
+            }
+        })
+    }
 }
 
 module.exports = new RequestController();

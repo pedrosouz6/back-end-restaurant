@@ -82,7 +82,18 @@ class AdminController {
                 }
             })
         }
+    }
 
+    deleteDish(req, res) {
+        const { id } = req.params;
+        const sql = `DELETE FROM menu WHERE id_dish = '${id}'`;
+        connection.query(sql, (error, results) => {
+            if(results) {
+                res.status(200).json({
+                    message: 'Usuário deletado com sucesso'
+                })
+            }
+        })
     }
 }
 
