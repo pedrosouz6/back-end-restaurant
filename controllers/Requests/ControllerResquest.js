@@ -6,14 +6,13 @@ class RequestController {
         const sql = `INSERT INTO requests(name_request, id_user, name_user, table_request, status_request) VALUES('${dish}', '${userId}', '${userName}', '${table}', 2)`;
         connection.query(sql, (error, results) => {
             if(results) {
-                console.log('certo')
+                console.log('certo');
             }
         });
     }
 
     get(req, res) {
         const { id } = req.params;
-        console.log('id '+id);
         const sql = `SELECT * FROM requests WHERE id_user = '${id}' ORDER BY id_request desc`;
         connection.query(sql, (error, results) => {
             if(results) {

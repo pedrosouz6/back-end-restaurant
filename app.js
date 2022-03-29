@@ -2,6 +2,7 @@ const CookerRoute = require('./routes/User/cooker');
 const WaiterRoute = require('./routes/User/waiter');
 const AdminRoute = require('./routes/User/admin');
 const RequestRoute = require('./routes/Request/request');
+const ForgotRoute = require('./routes/Forgot/forgot')
 
 const Dish = require('./routes/Menu/menu');
 
@@ -16,6 +17,7 @@ app.use('/', CookerRoute);
 app.use('/', WaiterRoute);
 app.use('/', AdminRoute);
 app.use('/', RequestRoute);
+app.use('/', ForgotRoute);
 
 //Dish
 app.use('/', Dish);
