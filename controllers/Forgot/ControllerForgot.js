@@ -1,7 +1,7 @@
 const { connection } = require('../../config/connection');
 
 class ControllerForgot {
-    cooker(req, res) {
+    CookerEmail(req, res) {
         const { emailForgot } = req.body;
 
         const sql = `SELECT * FROM cooker WHERE email = '${emailForgot}'`;
@@ -13,6 +13,19 @@ class ControllerForgot {
             } else {
                 res.status(200).json({
                     message: 'Usuário não existe'
+                })
+            }
+        })
+    }
+
+    CookerPassword(req, res) {
+        const { password, emailForgot } = req.body;
+        const sql = `UPDATE cooker SET password = '${password}' WHERE email = '${emailForgot}'`;
+        connection.query(sql, (error, results) => {
+            if(results) {
+                res.status(200).json({
+                    success: true,
+                    message: 'Senha alterada'
                 })
             }
         })
