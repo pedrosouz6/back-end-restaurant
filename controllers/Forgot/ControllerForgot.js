@@ -61,6 +61,38 @@ class ControllerForgot {
             }
         })
     }
+
+    AdminEmail(req, res) {
+        const { emailForgot } = req.body;
+        console.log(emailForgot)
+
+        const sql = `SELECT * FROM admin WHERE email = '${emailForgot}'`;
+        connection.query(sql, (error, results) => {
+            if(results.length === 1) {
+                res.status(200).json({
+                    exist: true,
+                })
+            } else {
+                res.status(200).json({
+                    message: 'Usuário não existe'
+                })
+            }
+        })
+    }
+
+    AdminPassword(req, res) {
+        const { password, emailForgot } = req.body;
+        console.log(emailForgot)
+        const sql = `UPDATE admin SET password = '${password}' WHERE email = '${emailForgot}'`;
+        connection.query(sql, (error, results) => {
+            if(results) {
+                res.status(200).json({
+                    success: true,
+                    message: 'Senha alterada'
+                })
+            }
+        })
+    }
 }
 
 module.exports = new ControllerForgot;
