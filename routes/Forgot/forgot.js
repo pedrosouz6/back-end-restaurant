@@ -6,5 +6,6 @@ const router = express.Router();
 
 router.post('/forgot/cooker', ControllerCooker.CookerEmail);
 router.post('/password/cooker', MiddleCookerPassword, ControllerCooker.CookerPassword);
+router.post('/forgot/waiter', ControllerCooker.WaiterPassword);
 
 module.exports = router;

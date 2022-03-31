@@ -30,6 +30,20 @@ class ControllerForgot {
             }
         })
     }
+
+    WaiterPassword(req, res) {
+        const { password, emailForgot } = req.body;
+        console.log(emailForgot)
+        // const sql = `UPDATE cooker SET password = '${password}' WHERE email = '${emailForgot}'`;
+        // connection.query(sql, (error, results) => {
+        //     if(results) {
+        //         res.status(200).json({
+        //             success: true,
+        //             message: 'Senha alterada'
+        //         })
+        //     }
+        // })
+    }
 }
 
 module.exports = new ControllerForgot;
