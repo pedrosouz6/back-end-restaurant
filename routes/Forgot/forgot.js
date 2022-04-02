@@ -7,12 +7,12 @@ const express = require('express');
 const router = express.Router();
 
 router.post('/forgot/cooker', ControllerCooker.CookerEmail);
-router.post('/password/cooker', MiddleCookerPassword, ControllerCooker.CookerPassword);
+router.put('/password/cooker', MiddleCookerPassword, ControllerCooker.CookerPassword);
 
 router.post('/forgot/waiter', ControllerCooker.WaiterEmail);
-router.post('/password/waiter', MiddleWaiterPassword, ControllerCooker.WaiterPassword);
+router.put('/password/waiter', MiddleWaiterPassword, ControllerCooker.WaiterPassword);
 
 router.post('/forgot/admin', ControllerCooker.AdminEmail);
-router.post('/password/admin', MiddleAdminPassword, ControllerCooker.AdminPassword);
+router.put('/password/admin', MiddleAdminPassword, ControllerCooker.AdminPassword);
 
 module.exports = router;

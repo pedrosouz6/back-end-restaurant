@@ -40,6 +40,7 @@ class WaiterController {
 
         connection.query(sql, (error, results) => {
             if(results.length > 0) {
+                console.log(results[0].id)
                 res.status(200).json({
                     user: {
                         id: results[0].id,
@@ -49,7 +50,7 @@ class WaiterController {
                         type: '2'
                     },
                     token: jwt.sign(
-                        {id: results.insertId},
+                        {id: results[0].id},
                         config.secret,
                         {expiresIn: config.expireIn}
                     )
