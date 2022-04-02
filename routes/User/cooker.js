@@ -8,7 +8,7 @@ const router = express.Router();
 
 router.get('/all/cooker', Cooker.get);
 router.post('/login/cooker', Cooker.login);
-router.get('/login/cooker/jwt', LoginCooker)
+router.get('/login/jwt', LoginCooker)
 router.post('/register/cooker', RegisterMiddle, Cooker.create);
 router.delete('/delete/cooker/:id', Cooker.delete);
 router.put('/update/cooker/:id', Cooker.update);
